@@ -1,0 +1,19 @@
+a.ui-slider-handle{ 
+	font-family: Trebuchet MS, Helvetica, Arial, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	text-transform: normal;
+	letter-spacing: -1px;
+	line-height: 1.2em;	
+	width:50px;
+	text-align: center;
+	text-decoration:none 
+}
+
+#pointsSlider1 .ui-widget-header{
+	background: #4572A7;
+}
+#pointsSlider2 .ui-widget-header{
+	background: #AA4643;
+}
+
