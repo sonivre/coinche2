@@ -1,3 +1,291 @@
+body {
+	margin: 0;
+	background: url(../img/bg.gif) repeat ;
+	background-color: #e3e3e3;	
+	font-family: Trebuchet MS, Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+}
+span{
+	font-weight: bold;
+	text-transform: normal;
+	letter-spacing: 2px;
+	line-height: 1.2em;	
+}
+a{
+	font-weight: bold;
+	text-transform: normal;
+}
+button{
+	font-weight: bold;
+	text-transform: normal;
+	font-size: 10px;
+}
+#top{
+	position:relative;
+	/*background: url(../img/coinche.png) no-repeat;*/
+	height:70px;
+	margin-left:10px;	
+}
+#info{
+	position:relative;
+	height:70px;
+	top:-5px;
+	right:10px;
+	margin-left:380px;	
+	background: url(../img/bg-box.jpg) repeat-x ;
+	background-color: #e3e3e3;	
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border: 3px solid #d8d8d8;	
+	text-align: center;
+}
+#score{
+	position:relative;
+	padding:10px;
+	text-align: center;
+	background: url(../img/bg-topbox.jpg) repeat-x ;	
+	background-color: #ECDDAF;	
+}
+#score table td{
+	vertical-align:middle;
+	text-align: center;
+}
+
+#allContainer{
+	padding: 10px;
+}
+#bottom{
+	padding-top:10px;
+}
+#caqui{
+	width:300px;
+	height:406px;
+	float:left;
+	text-align: center;
+	margin: 0px 8px 0px 3px;
+}
+#annonce{
+	width:300px;
+	height:400px;
+	float:left;
+	text-align: center;
+}
+#point{
+	position:relative;
+	right:0px;
+	bottom:0px;
+	height:400px;
+	margin-left:633px;
+	text-align: center;
+}
+#stats{
+	width:300px;
+	height:400px;
+	float:left;
+}
+#slider-vertical{
+	float:left;
+}
+
+.greyRound{
+	margin: 0px 8px 0px 3px;
+	background: url(../img/bg-box.jpg) repeat-x ;
+	background-color: #f1f1f1;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border: 3px solid #d8d8d8;
+}
+#annonceTable{
+	font-size: 24px;
+	text-transform: normal;
+	letter-spacing: -1px;
+	line-height: 1.2em;	
+}
+#annonceTable td{
+	text-align: center;
+	cursor: pointer;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;	
+}
+
+#annonceTable td:hover{
+	color:white;
+	background-color: #989898;
+	border: 0px solid #d8d8d8;
+}
+#annonceTable td.selected{
+	color:white;
+	background-color: #ff0000;
+	border: 0px solid #d8d8d8;
+}
+#pointBleu{
+	margin:10px;
+	padding:10px;
+	border:solid 1px #c2c2c2;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;	
+}
+#pointRouge{
+	margin:10px;
+	padding:10px;
+	border:solid 1px #a6a6a6;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;	
+}
+#pointsSliderBox{
+	padding:5 10 5 10;
+}
+#pointsBox{
+	padding:10 10 5 20;
+	text-align: right;
+}
+#pointsButton{
+	position:absolute;
+	bottom:10px;
+	right:0px;
+	padding:10 10 10 20;
+	text-align: right;
+}
+/*BUTTON*/
+button.button {
+    background: #ccc;
+    cursor: pointer;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;	
+    border-top: solid 2px #eaeaea;
+    border-left: solid 2px #eaeaea;
+    border-bottom: solid 2px #777;
+    border-right: solid 2px #777;
+    padding: 3px 5px;           
+}
+
+button.downC {
+	color:white;
+    background-color: #FD6C01;
+    border-top: solid 2px #333;
+    border-left: solid 2px #333;
+    border-bottom:solid 2px  #bbb;
+    border-right: solid 2px #bbb;
+}
+button.downSC {
+	color:white;
+    background-color: #E60000;
+    border-top: solid 2px #333;
+    border-left: solid 2px #333;
+    border-bottom:solid 2px  #bbb;
+    border-right: solid 2px #bbb;
+}
+button.grosButton{
+    background: #ccc;
+    cursor: pointer;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;	
+    border-top: solid 2px #eaeaea;
+    border-left: solid 2px #eaeaea;
+    border-bottom: solid 2px #777;
+    border-right: solid 2px #777;
+    padding: 10px 10px;           
+}
+button.down{
+    background: #ccc;
+    cursor: pointer;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;	
+    border-top: solid 2px #777;
+    border-left: solid 2px #777;
+    border-bottom: solid 2px #eaeaea;
+    border-right: solid 2px #eaeaea;       
+}
+
+/* INPUT */
+#info input.big{
+	width:100px;
+	font-size: 34px;
+	text-transform: normal;
+	letter-spacing: -1px;
+	line-height: 2em;	
+	text-align: right;
+}
+#info input.small{
+	width:50px;
+	font-size: 20px;
+	text-transform: normal;
+	letter-spacing: -1px;
+	line-height: 1.2em;	
+	text-align: right;
+}
+#point input{
+	width:50px;
+	font-size: 24px;
+	text-transform: normal;
+	letter-spacing: -1px;
+	line-height: 1.2em;	
+	text-align: right;
+}
+#score1{	
+	color:#5E8BC0;
+}
+#score2{	
+	color:#C35F5C;
+}
+/***************************************/
+
+#contactLink{
+	position:relative;
+   width:100px;
+   background-color:#f1f1f1;
+   display:block;
+   cursor:pointer;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;	
+    border-left: 3px solid #d8d8d8;
+    border-bottom: 3px solid #d8d8d8;
+    border-right: 3px solid #d8d8d8;  
+	margin-top:-4px;
+	font-weight: bold;
+	vertical-align:bottom;
+	text-align: center;
+}
+#menuContainer
+{
+   position:absolute;
+   left:13px;
+   z-index:10000;
+	margin:0px;
+}
+#menuForm
+{
+	position:relative;
+   height:277px;
+   width:351px;
+   background-color:#f1f1f1;
+    border-left: 3px solid #d8d8d8;
+    border-bottom: 3px solid #d8d8d8;
+    border-right: 3px solid #d8d8d8;     
+   display:none;
+   padding: 10px 10px;
+}
+.equipe{
+	margin: 0px 0px 5px 0px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border: 3px solid #d8d8d8;
+	padding: 10px;
+}
+.equipe{
+	color:white;
+}
+.equipe select{
+	width:100px;
+}
+#equipe1{
+	background-color: #4572A7;
+}
+#equipe2{
+	background-color: #AA4643;
+}
+/*  CUSTOMIZED SLIDER */
 a.ui-slider-handle{ 
 	font-family: Trebuchet MS, Helvetica, Arial, sans-serif;
 	font-size: 24px;
@@ -10,10 +298,21 @@ a.ui-slider-handle{
 	text-decoration:none 
 }
 
-#pointsSlider1 .ui-widget-header{
+#slider1 .ui-widget-header{
 	background: #4572A7;
 }
-#pointsSlider2 .ui-widget-header{
+#slider2 .ui-widget-header{
 	background: #AA4643;
 }
 
+.ui-widget-overlay {
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:#AAAAAA url(images/ui-bg_diagonals-thick_20_666666_40x40.png) repeat scroll 50% 50%;
+	opacity:0.4;
+}
+
+.ui-dialog .ui-widget-content{
+	border:0;
+}
