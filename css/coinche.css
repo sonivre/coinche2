@@ -1,7 +1,7 @@
 body {
 	margin: 0;
-	background: url(../img/bg.gif) repeat ;
-	background-color: #e3e3e3;	
+	/*background: url(../img/bg.gif) repeat ;*/
+	background-color: #B1B4BA;/* D0B35F */
 	font-family: Trebuchet MS, Helvetica, Arial, sans-serif;
 	font-size: 12px;
 	font-style: normal;
@@ -24,29 +24,45 @@ button{
 #top{
 	position:relative;
 	/*background: url(../img/coinche.png) no-repeat;*/
+	background-position:0px 10px;
 	height:70px;
 	margin-left:10px;	
 }
 #info{
 	position:relative;
-	height:70px;
+	height:50px;
 	top:-5px;
 	right:10px;
 	margin-left:380px;	
-	background: url(../img/bg-box.jpg) repeat-x ;
-	background-color: #e3e3e3;	
+	padding:10px;
+	background: url(../img/bg-topbox.jpg) repeat-x ;	
+	background-color: #ECDDAF;
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;
 	border: 3px solid #d8d8d8;	
 	text-align: center;
 }
-#score{
-	position:relative;
-	padding:10px;
-	text-align: center;
-	background: url(../img/bg-topbox.jpg) repeat-x ;	
-	background-color: #ECDDAF;	
+#buttonsLeft{
+	position:absolute;
+	left:10px;	
+	padding-top:8px;
 }
+#score{
+	position:absolute;
+	left:40%;
+	padding-top:3px;	
+}
+
+#buttonsRight{
+	position:absolute;
+	right:10px;	
+	padding-top:8px;
+}
+#clock{
+	display:inline;
+	padding:20px 0px 20px 10px;
+}
+
 #score table td{
 	vertical-align:middle;
 	text-align: center;
@@ -96,6 +112,7 @@ button{
 	-webkit-border-radius: 6px;
 	border: 3px solid #d8d8d8;
 }
+/* ANNONCE TABLE */
 #annonceTable{
 	font-size: 24px;
 	text-transform: normal;
@@ -108,17 +125,49 @@ button{
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;	
 }
-
 #annonceTable td:hover{
 	color:white;
-	background-color: #989898;
-	border: 0px solid #d8d8d8;
 }
-#annonceTable td.selected{
+#annonceTable td.selected1{
 	color:white;
-	background-color: #ff0000;
-	border: 0px solid #d8d8d8;
+	background-color: #4572A7;
+	border: 0px;
 }
+#annonceTable td.selected2{
+	color:white;
+	background-color: #AA4643;
+	border: 0px;
+}
+#annonceTable td .wrap{
+	position:relative;
+}
+#annonceTable td .hover {
+	height:100%;
+	left:0;
+	position:absolute;
+	top:0;
+	width:100%;
+	z-index:10;
+}
+#annonceTable td .hover a {
+	outline-color:-moz-use-text-color;
+	outline-style:none;
+	outline-width:medium;
+	display:block;
+	width:49%;
+	height:100%;
+}
+#annonceTable td .hover a.e1 {
+	float:left;
+	left:0;
+}
+#annonceTable td .hover a.e2 {
+	float:right;
+	right:0;
+}
+
+/* POINTS BOX */
+
 #pointBleu{
 	margin:10px;
 	padding:10px;
@@ -197,14 +246,19 @@ button.down{
     border-bottom: solid 2px #eaeaea;
     border-right: solid 2px #eaeaea;       
 }
-
+button#buttonPausePipi{
+	border:0;	
+	background-color:transparent;
+	cursor: pointer;
+}
 /* INPUT */
 #info input.big{
-	width:100px;
+	background: #fff;
+	border: solid 1px #aeaeae;
+	width:80px;
 	font-size: 34px;
 	text-transform: normal;
 	letter-spacing: -1px;
-	line-height: 2em;	
 	text-align: right;
 }
 #info input.small{
@@ -231,43 +285,9 @@ button.down{
 }
 /***************************************/
 
-#contactLink{
-	position:relative;
-   width:100px;
-   background-color:#f1f1f1;
-   display:block;
-   cursor:pointer;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;	
-    border-left: 3px solid #d8d8d8;
-    border-bottom: 3px solid #d8d8d8;
-    border-right: 3px solid #d8d8d8;  
-	margin-top:-4px;
-	font-weight: bold;
-	vertical-align:bottom;
-	text-align: center;
-}
-#menuContainer
-{
-   position:absolute;
-   left:13px;
-   z-index:10000;
-	margin:0px;
-}
-#menuForm
-{
-	position:relative;
-   height:277px;
-   width:351px;
-   background-color:#f1f1f1;
-    border-left: 3px solid #d8d8d8;
-    border-bottom: 3px solid #d8d8d8;
-    border-right: 3px solid #d8d8d8;     
-   display:none;
-   padding: 10px 10px;
-}
+
 .equipe{
-	margin: 0px 0px 5px 0px;
+	margin: 5px 0px 0px 0px;
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;
 	border: 3px solid #d8d8d8;
@@ -277,7 +297,8 @@ button.down{
 	color:white;
 }
 .equipe select{
-	width:100px;
+	width:170px;
+	margin: 4px 10px;
 }
 #equipe1{
 	background-color: #4572A7;
@@ -315,4 +336,18 @@ a.ui-slider-handle{
 
 .ui-dialog .ui-widget-content{
 	border:0;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+	background-image:none;
+	border-width:1px 0 0;
+	margin:0;
+	padding:0 1em 0 0.4em;
+	text-align:left;
+}
+/* jQuery Countdown styles 1.5.5. */
+.hasCountdown {
+	font-family: Trebuchet MS, Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-style: normal;		
 }
