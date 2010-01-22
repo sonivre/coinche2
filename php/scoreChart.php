@@ -1,31 +1,42 @@
 <?php
+session_start();
 require("config.inc.php"); 
 require("Database.class.php");
 
-if (isset($_GET['equipe']) && $_GET['equipe'] != "") {
+if(isset($_SESSION['partieId'])){
 
-	$equipe = $_GET['equipe'];
+	if (isset($_GET['equipe']) && $_GET['equipe'] != "") {
 
-	$score = 'score'.$equipe;
+		$equipe = $_GET['equipe'];
 
-	$sql = "SELECT score".$equipe." FROM `".TABLE_DONNE."` WHERE fkpartieid = 1 ORDER BY pkid";
+		$score = 'score'.$equipe;
 
-	$db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE); 
+		$sql = "SELECT score".$equipe." FROM `".TABLE_DONNE."` WHERE fkpartieid = ".$_SESSION['partieId']." ORDER BY pkid";
 
-	$db->connect(); 		  
-			  
-	$rows = $db->query($sql);
+		$db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE); 
 
-	$somme = 0;
-	
-	print('[');
-	while ($record = $db->fetch_array($rows)) {
-		$point = $record[$score];
-		$somme += $point;
-		print($somme.',');
-	}
-	print(']');
+		$db->connect(); 		  
+				  
+		$rows = $db->fetch_all_array($sql);
 
-	$db->close();
-}        
+		$somme = 0;
+		
+		print('{data:[');
+		
+		//if(count($rows) == 0){
+			print('0,');
+		//}else{		
+			foreach($rows as $row){ 
+				$point = $row[$score];
+				$somme += $point;
+				print($somme.',');
+			}
+		//}
+		print(']}');
+
+		$db->close();
+	}        
+}else{
+	print('{data:[0]}');
+}
 ?>		

@@ -12,6 +12,6 @@ define('DB_DATABASE', "coinche");
 
 //smart to define your table names also
 define('TABLE_DONNE', "donne");
-define('TABLE_NEWS', "news");
-
+define('TABLE_PARTIE', "partie");
+define('TABLE_JOUEUR', "joueur");
 ?>
