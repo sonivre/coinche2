@@ -26,14 +26,25 @@ if (isset($_POST['j11']) && isset($_POST['j12']) && isset($_POST['j21']) && isse
 	
 	$joueurs = array($j11,$j21,$j12,$j22);
 	
+	$joueursName = array("","","","");
+	
 	$id = $db->query_insert(TABLE_PARTIE, $data);
 	
 	//get joueur names
-	//$sql = "SELECT nom FROM `".TABLE_JOUEUR."` WHERE pkid = ".$_SESSION['partieId']." ORDER BY pkid";
+	$i = 0;
+	foreach ($joueurs as $joueur) {
+	
+		$sql = "SELECT nom FROM `".TABLE_JOUEUR."` WHERE pkid = ".$joueur;
+		
+		$record = $db->query_first($sql);
+		
+		$joueursName[$i++] = $record["nom"];		
+	}	
 	
 	$_SESSION['partieId']=$id;
-	$_SESSION['donneur']=1;
+	$_SESSION['donneur']=$joueurs[0];
 	$_SESSION['joueurs']=$joueurs;
+	$_SESSION['joueursName']=$joueursName;
 	
 	$db->close();
 }        

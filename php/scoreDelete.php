@@ -1,4 +1,5 @@
 <?php
+session_start();
 require("config.inc.php"); 
 require("Database.class.php");
 
@@ -16,6 +17,11 @@ $lastId = $record['pkid'];
 $sql = "DELETE FROM `".TABLE_DONNE."` WHERE pkid = ".$lastId;
 
 $db->query($sql);	
+
+//decrement donneur
+$joueurs = $_SESSION['joueurs'];
+$previousDonneur = getPreviousJoueur($joueurs, $_SESSION['donneur']);
+$_SESSION['donneur'] = $previousDonneur;
 
 $db->close();  
 ?>		
