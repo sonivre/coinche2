@@ -1,7 +1,7 @@
 body {
 	margin: 0;
 	/*background: url(../img/bg.gif) repeat ;*/
-	background-color: #B1B4BA;/* D0B35F */
+	background-color: #9A9894;/* D0B35F */
 	font-family: Trebuchet MS, Helvetica, Arial, sans-serif;
 	font-size: 12px;
 	font-style: normal;
@@ -19,11 +19,11 @@ a{
 button{
 	font-weight: bold;
 	text-transform: normal;
-	font-size: 10px;
+	font-size: 10px;	
 }
 #top{
 	position:relative;
-	/*background: url(../img/coinche.png) no-repeat;*/
+	background: url(../img/coinche.png) no-repeat;
 	background-position:0px 10px;
 	height:70px;
 	margin-left:10px;	
@@ -35,8 +35,8 @@ button{
 	right:10px;
 	margin-left:380px;	
 	padding:10px;
-	background: url(../img/bg-topbox.jpg) repeat-x ;	
-	background-color: #ECDDAF;
+	/*background: url(../img/bg-topbox.jpg) repeat-x ;	*/
+	background-color: #CCC5AE;
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;
 	border: 3px solid #d8d8d8;	
@@ -74,12 +74,18 @@ button{
 #bottom{
 	padding-top:10px;
 }
-#caqui{
+#caquiWrap{
 	width:300px;
-	height:406px;
+	height:400px;
 	float:left;
 	text-align: center;
 	margin: 0px 8px 0px 3px;
+}
+#caqui{
+	width:300px;
+	height:370px;
+	float:left;
+	text-align: center;
 }
 #annonce{
 	width:300px;
@@ -95,10 +101,21 @@ button{
 	margin-left:633px;
 	text-align: center;
 }
-#stats{
-	width:300px;
-	height:400px;
+#scorechart{
+	width:880px;
+	height:290px;
 	float:left;
+}
+#stats{
+	position:relative;
+	right:0px;
+	bottom:0px;
+	height:290px;
+	margin-left:900px;
+	text-align: center;
+}
+#statschart{
+	height:200px;
 }
 #slider-vertical{
 	float:left;
@@ -106,8 +123,8 @@ button{
 
 .greyRound{
 	margin: 0px 8px 0px 3px;
-	background: url(../img/bg-box.jpg) repeat-x ;
-	background-color: #f1f1f1;
+	/*background: url(../img/bg-box.jpg) repeat-x ;*/
+	background-color: #CCC5AE;
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;
 	border: 3px solid #d8d8d8;
@@ -165,20 +182,33 @@ button{
 	float:right;
 	right:0;
 }
-
+/* STATS */
+#stats input{
+	width:30px;
+	font-size: 13px;
+	text-transform: normal;
+	letter-spacing: -1px;
+	line-height: 1.2em;	
+	text-align: right;
+}
+#stats td {
+	font-family: Trebuchet MS, Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+}
 /* POINTS BOX */
 
-#pointBleu{
+.borderBleu{
 	margin:10px;
 	padding:10px;
-	border:solid 1px #c2c2c2;
+	border:solid 1px #adadad;/*#5E8BC0;*/
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;	
 }
-#pointRouge{
+.borderRouge{
 	margin:10px;
 	padding:10px;
-	border:solid 1px #a6a6a6;
+	border:solid 1px #adadad;/*#AA4643;*/
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;	
 }
@@ -195,6 +225,14 @@ button{
 	right:0px;
 	padding:10 10 10 20;
 	text-align: right;
+}
+div.beloteBox{
+	display:inline;
+	line-height: 25px;
+	height: 25px;	
+}
+span.plus{
+	font-size:25px;font-weight:bold;
 }
 /*BUTTON*/
 button.button {
@@ -246,6 +284,15 @@ button.down{
     border-bottom: solid 2px #eaeaea;
     border-right: solid 2px #eaeaea;       
 }
+
+button.downBelote1 {
+	color:white;
+    background-color: #4572A7;
+}
+button.downBelote2 {
+	color:white;
+    background-color: #AA4643;
+}
 button#buttonPausePipi{
 	border:0;	
 	background-color:transparent;
@@ -270,7 +317,7 @@ button#buttonPausePipi{
 	text-align: right;
 }
 #point input{
-	width:50px;
+	width:60px;
 	font-size: 24px;
 	text-transform: normal;
 	letter-spacing: -1px;
@@ -336,6 +383,7 @@ a.ui-slider-handle{
 
 .ui-dialog .ui-widget-content{
 	border:0;
+	background-color: #E7E3D8;
 }
 
 .ui-dialog .ui-dialog-buttonpane {
