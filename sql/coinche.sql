@@ -13,6 +13,7 @@ CREATE TABLE donne (
 	scoinche NUMERIC(1,0) DEFAULT 0,
 	donneur SMALLINT NOT NULL,
 	annonceur SMALLINT NOT NULL,
+	annonce SMALLINT NOT NULL,
 	UNIQUE PK_DONNE_ID (pkid)
 );
 
