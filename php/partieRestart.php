@@ -11,7 +11,7 @@ require("Database.class.php");
 	$db->connect(); 		  
 			  
 	$record = $db->query_first($sql);
-//print("count($record): ".count($record)).", pkid:".$record["pkid"]."<br>";	
+	
 	if(count($record)>0 && $record["pkid"] > 0){
 	
 		$_SESSION['partieId']=$record["pkid"];

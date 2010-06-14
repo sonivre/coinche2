@@ -3,6 +3,41 @@ session_start();
 require("config.inc.php"); 
 require("Database.class.php");
 
+//get all partie id from the same soiree
+if(!isset($_SESSION['soireeIds'])){
+
+	$db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE); 
+
+	$db->connect(); 
+	
+	$yesterday = date('Y-m-d 12:00:00', mktime(0, 0, 0, date("m") , date("d") - 1, date("Y")));
+	
+	$sqlSoiree = "SELECT pkid FROM `".TABLE_PARTIE."` WHERE dstart > '".$yesterday."'";
+	
+	$rows = $db->fetch_all_array($sqlSoiree);
+	
+	$ids = array();
+	$k=0;
+	foreach($rows as $row){ 
+		$id = $row['pkid'];
+		$ids[$k++]=$id;
+	}		
+	
+	$_SESSION['soireeIds']=$ids;
+	
+	$db->close();	
+}
+$soireeIds = $_SESSION['soireeIds'];
+
+$soireeIdsAsString ="";
+foreach($soireeIds as $soireeId){ 
+	$soireeIdsAsString.=$soireeId.",";
+}
+$soireeIdsAsString = substr($soireeIdsAsString, 0,strlen($soireeIdsAsString)-1);
+
+$soireeIdsAsString = 'in ('.$soireeIdsAsString.')';
+
+
 if(isset($_SESSION['partieId'])){
 
 	$strXMLeff = "";
@@ -23,10 +58,10 @@ if(isset($_SESSION['partieId'])){
 	
 	//compute efficacité + réussite
 	//select count(*) from donne where fkpartieid=10 and annonceur=2 and score2=0;
-	$sqlTotal = "SELECT count(*) as total FROM `".TABLE_DONNE."` WHERE fkpartieid = ".$_SESSION['partieId'];
-	$sqlTotalEquipe = "SELECT count(*) as total FROM `".TABLE_DONNE."` WHERE fkpartieid = ".$_SESSION['partieId']." group by annonceur order by annonceur asc";
-	$sqlTotalKoEquipe1 = "SELECT count(*) as total FROM `".TABLE_DONNE."` WHERE fkpartieid = ".$_SESSION['partieId']." and score1 = 0 and annonceur = 1";
-	$sqlTotalKoEquipe2 = "SELECT count(*) as total FROM `".TABLE_DONNE."` WHERE fkpartieid = ".$_SESSION['partieId']." and score2 = 0 and annonceur = 2";
+	$sqlTotal = "SELECT count(*) as total FROM `".TABLE_DONNE."` WHERE fkpartieid ".$soireeIdsAsString;
+	$sqlTotalEquipe = "SELECT count(*) as total FROM `".TABLE_DONNE."` WHERE fkpartieid ".$soireeIdsAsString." group by annonceur order by annonceur asc";
+	$sqlTotalKoEquipe1 = "SELECT count(*) as total FROM `".TABLE_DONNE."` WHERE fkpartieid ".$soireeIdsAsString." and score1 = 0 and annonceur = 1";
+	$sqlTotalKoEquipe2 = "SELECT count(*) as total FROM `".TABLE_DONNE."` WHERE fkpartieid ".$soireeIdsAsString." and score2 = 0 and annonceur = 2";
 	
 	$rowsTot = $db->query_first($sqlTotal);
 	$donnesTotal = $rowsTot['total'];
@@ -56,8 +91,8 @@ if(isset($_SESSION['partieId'])){
 	
 	//compute stats des donnes
 	//select count(*),vtype from donne where fkpartieid=10 and annonceur=1 group by vtype order by vtype asc; Atout, Sans Atout, Tout Atout
-	$sql1 = "SELECT count(*) as total,vtype FROM `".TABLE_DONNE."` WHERE fkpartieid = ".$_SESSION['partieId']." and annonceur=1 group by vtype order by vtype asc";	
-	$sql2 = "SELECT count(*) as total,vtype FROM `".TABLE_DONNE."` WHERE fkpartieid = ".$_SESSION['partieId']." and annonceur=2 group by vtype order by vtype asc";	
+	$sql1 = "SELECT count(*) as total,vtype FROM `".TABLE_DONNE."` WHERE fkpartieid ".$soireeIdsAsString." and annonceur=1 group by vtype order by vtype asc";	
+	$sql2 = "SELECT count(*) as total,vtype FROM `".TABLE_DONNE."` WHERE fkpartieid ".$soireeIdsAsString." and annonceur=2 group by vtype order by vtype asc";	
 			  
 	$rows1 = $db->fetch_all_array($sql1);
 	

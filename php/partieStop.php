@@ -3,6 +3,7 @@ session_start();
 require("config.inc.php"); 
 require("Database.class.php");
 
+//just insert the stop date of the current partie
 if (isset($_SESSION['partieId'])) {
 
 	$time = $_POST['date'];

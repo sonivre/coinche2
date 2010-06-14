@@ -10,6 +10,8 @@ if (isset($_POST['j11']) && isset($_POST['j12']) && isset($_POST['j21']) && isse
 	$j21 = $_POST['j21'];
 	$j22 = $_POST['j22'];
 	$time = $_POST['date'];
+	$samePlayers = $_POST['samePlayer'];
+	
 	
 	$seconds = $time / 1000;
 	
@@ -42,10 +44,28 @@ if (isset($_POST['j11']) && isset($_POST['j12']) && isset($_POST['j21']) && isse
 	}	
 	
 	$_SESSION['partieId']=$id;
-	$_SESSION['donneur']=$joueurs[0];
 	$_SESSION['joueurs']=$joueurs;
 	$_SESSION['joueursName']=$joueursName;
+	$_SESSION['soireeIds']=null;
 	
+	//set donneur as 1st player if new soiree, or as next player if same soiree
+	if($samePlayers == 'true'){		
+		$sql = "SELECT donneur FROM `".TABLE_DONNE."` WHERE fkpartieid = ".($id-1)." ORDER BY pkid DESC";
+		
+		$record = $db->query_first($sql);		
+		
+		//if partie started...
+		if(count($record)>0){				
+			$donneur = getNextJoueur($joueurs, $record["donneur"]);	
+		}else{
+			$donneur=$joueurs[0];
+		}
+			
+	}else{//first player
+		$donneur=$joueurs[0];
+	}	
+	$_SESSION['donneur']=$donneur;
+
 	$db->close();
 }        
 ?>		
